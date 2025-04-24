@@ -16,7 +16,7 @@
                                 echo "<span style='color:red;font-size:18px;'>Password must not be empty</span>";
                             } else{
                                 $hashedPassword = md5($password);
-                                $query = "INSERT INTO user (username, password, role) VALUES ('$username', '$hashedPassword', '$role')";
+                                $query = "INSERT INTO users (username, password, role) VALUES ('$username', '$hashedPassword', '$role')";
                                 $create_user =  $db->crate($query);
                                 if ($create_user){
                                     echo "<span style='color:green;font-size:18px;'>User created successfully.</span>";
