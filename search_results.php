@@ -115,23 +115,24 @@ $format = new Format();
                         if (!in_array($result['category_id'], $categories)) {
                             $categories[] = $result['category_id'];
                         }
-                        $searchData[$result['category_id']] = $result;
+                        $searchData[] = $result;
                     }
                 }
             }
         }
     ?>
+    
     <?php if (count($categories)) :?>
-        <!-- Courses Start -->
-        <?php foreach ($categories as $categoryId) :?>
-            <?php 
-                $query = "SELECT * FROM categories where id = '$categoryId'";
-                $category = $db->select($query);
-                if ($category) {
-                    $category = mysqli_fetch_array($category);    
-                }
-            ?>
-            <div class="container-fluid px-0 py-5" id="courses">
+        <div class="container-fluid px-0 py-5" id="courses">
+            <!-- Courses Start -->
+            <?php foreach ($categories as $categoryId) :?>
+                <?php 
+                    $query = "SELECT * FROM categories where id = '$categoryId'";
+                    $category = $db->select($query);
+                    if ($category) {
+                        $category = mysqli_fetch_array($category);    
+                    }
+                ?>
                 <div class="row mx-0 justify-content-center pt-5">
                     <div class="col-lg-6">
                         <div class="section-title text-center position-relative mb-4">
@@ -141,7 +142,15 @@ $format = new Format();
                     </div>
                 </div>
                 <div class="owl-carousel courses-carousel">
-                    <?php foreach($searchData as $item) :?>
+                    <?php 
+                        $getPosts = [];
+                        foreach($searchData as $item) {
+                            if ($item['category_id'] == $categoryId) {
+                                $getPosts[] = $item;
+                            }
+                        }
+                    ?>
+                    <?php foreach($getPosts as $item) :?>
                         <div class="courses-item position-relative">
                             <img class="img-fluid" src="<?php echo 'admin/'.$item['thumbnail'] ?>" alt="">
                             <div class="courses-text">
@@ -159,9 +168,9 @@ $format = new Format();
                         </div>
                     <?php endforeach; ?>
                 </div>
-            </div>
-        <!-- Courses End -->
-        <?php endforeach; ?>
+            <!-- Courses End -->
+            <?php endforeach; ?>
+        </div>
     <?php endif; ?>
 
 <?php include "includes/footer.php"; ?>

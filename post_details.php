@@ -67,14 +67,14 @@
                                 }
 
                                 function findReplies($replies, $commentId) {
-                                    if (!count($replies)) return null;
-
+                                    $result = [];
+                                    if (!count($replies)) return $result;
                                     foreach ($replies as $reply) {
                                         if ($reply['reply_to'] == $commentId) {
-                                            return $reply;
+                                            $result[] = $reply;
                                         }
                                     }
-                                    return null;
+                                    return $result;
                                 }
 
                             ?>
@@ -93,13 +93,15 @@
 
                                             <?php $listReply = findReplies($replies, $comment['id']); ?>
                                             <?php if ($listReply) :?>
-                                                <div class="reply mt-2">
-                                                    <img src="img/avatar-default.jpg" alt="avatar">
-                                                    <div class="reply-body">
-                                                        <strong><?php echo $reply['name'] ?></strong>
-                                                        <p><?php echo $reply['content'] ?></p>
+                                                <?php foreach ($listReply as $reply) :?>
+                                                    <div class="reply mt-2">
+                                                        <img src="img/avatar-default.jpg" alt="avatar">
+                                                        <div class="reply-body">
+                                                            <strong><?php echo $reply['name'] ?></strong>
+                                                            <p><?php echo $reply['content'] ?></p>
+                                                        </div>
                                                     </div>
-                                                </div>
+                                                <?php endforeach; ?>
                                             <?php endif; ?>
                                             
                                             <!-- Reply form -->
@@ -140,7 +142,7 @@
                     <?php if ($allRelatePost) :?>
                         <div class="owl-carousel related-carousel position-relative" style="padding: 0 30px;">
                             <?php foreach ($allRelatePost as $rePost) :?>
-                                <a class="courses-list-item position-relative d-block overflow-hidden mb-2" href="detail.html">
+                                <a class="courses-list-item position-relative d-block overflow-hidden mb-2" href="post_details.php?id=<?php echo $rePost['id'];  ?>">
                                     <img class="img-fluid" src="<?php echo 'admin/'.$rePost['thumbnail'] ?>" alt="">
                                     <div class="courses-text">
                                         <h4 class="text-center text-white px-3"><?php echo $rePost['name'] ?></h4>
