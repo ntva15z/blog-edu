@@ -1,4 +1,4 @@
-# Dynamic-Blog-Website
+# Blog
 PHP Blog Website with Admin Panel.
 This is a dynamic blog website 
 
