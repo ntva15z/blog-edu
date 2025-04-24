@@ -177,7 +177,7 @@
                     <img class="img-fluid w-100" src="img/team-1.jpg" alt="">
                     <div class="bg-light text-center p-4">
                         <h5 class="mb-3">Emma Carter</h5>
-                        <p class="mb-2">ESL Teacher & IELTS Examiner</p>
+                        <p class="mb-2">ESL Teacher & TOEIC Examiner</p>
                         <div class="d-flex justify-content-center">
                             <a class="mx-1 p-1" href="#"><i class="fab fa-twitter"></i></a>
                             <a class="mx-1 p-1" href="#"><i class="fab fa-facebook-f"></i></a>
@@ -263,7 +263,7 @@
                         <!-- Testimonial 2 -->
                         <div class="bg-white p-5">
                             <i class="fa fa-3x fa-quote-left text-primary mb-4"></i>
-                            <p class="font-italic">"The flexible scheduling allowed me to balance my full-time job while preparing for IELTS. I achieved Band 8.5 and secured my dream university admission!"</p>
+                            <p class="font-italic">"The flexible scheduling allowed me to balance my full-time job while preparing for TOEIC. I achieved Band 8.5 and secured my dream university admission!"</p>
                             <div class="d-flex flex-shrink-0 align-items-center mt-4">
                                 <img class="img-fluid rounded-circle mr-4" src="img/testimonial-1.jpg" alt="Takuya Yamamoto" style="width: 80px; height: 80px;">
                                 <div>

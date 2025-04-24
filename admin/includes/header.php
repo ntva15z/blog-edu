@@ -50,7 +50,7 @@ $format = new Format();
                 <img src="img/logo.jpeg" alt="Logo" />
             </div>
             <div class="floatleft middle">
-                <h1>Study IELTS</h1>
+                <h1>Study TOEIC</h1>
             </div>
             <div class="floatright">
                 <div class="floatleft">
